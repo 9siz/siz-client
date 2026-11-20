@@ -1,7 +1,9 @@
 {
   "name": "siz-client", "productName": "Siz Client", "version": "0.2.0", "main": "main.js",
-  "scripts": { "start": "electron .", "dist": "electron-builder" },
+  "description": "Siz Client", "author": "Siz",
+  "scripts": { "start": "electron .", "dist": "electron-builder --publish never" },
   "dependencies": { "discord-rpc": "^4.0.1", "minecraft-launcher-core": "^3.18.2", "msmc": "^5.0.5", "skinview3d": "^3.1.0", "three": "0.150.1" },
-  "devDependencies": {},
-  "build": { "appId": "dev.siz.client", "productName": "Siz Client", "icon": "icon.png", "mac": { "category": "public.app-category.games" } }
+  "devDependencies": { "electron": "^31.0.0", "electron-builder": "^24.13.3" },
+  "build": { "appId": "dev.siz.client", "productName": "Siz Client", "icon": "icon.png",
+    "mac": { "category": "public.app-category.games", "target": "dmg" }, "win": { "target": "nsis" } }
 }
