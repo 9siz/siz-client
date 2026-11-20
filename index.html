@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Siz Client</title>
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'none'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<link rel="stylesheet" href="style.css"></head><body>
+<nav><div class="brand"><img src="icon.svg" alt="">Siz</div>
+<button class="on" data-t="play">Play</button><button data-t="mods">Mods</button><button data-t="avatar">Avatar</button></nav>
+<main>
+<section id="play" class="on"><h2>Ready up</h2>
+ <div class="card row"><div><label>Account</label><span id="acct" class="pill">Not logged in</span></div>
+  <button class="b" data-act="ms">Microsoft login</button><input id="off" type="text" placeholder="offline name" maxlength="32"><button class="b" data-act="offline">Offline</button><button class="b" data-act="logout">Log out</button></div>
+ <div class="card"><div class="row"><div><label>Instance</label><select id="inst"></select></div><button class="b" data-act="new">New</button><button class="b" data-act="folder">Open folder</button>
+  <div><label>Minecraft version</label><select id="ver"></select></div><div><label>Loader</label><select id="loader"><option>vanilla</option><option>fabric</option></select></div>
+  <div><label>RAM (GB)</label><input id="ram" type="number" min="1" max="32" style="width:80px"></div><div><label><input type="checkbox" id="snap"> snapshots</label></div></div></div>
+ <button class="go" data-act="play">PLAY</button><div style="height:16px"></div><pre id="log"></pre></section>
+<section id="mods"><h2>Mods</h2><div class="card row"><input id="q" type="text" placeholder="Search Modrinth" style="width:320px"><button class="b" data-act="search">Search</button><button class="b" data-act="prism">Import from Prism</button></div>
+ <div class="card" id="res" hidden></div><div class="card"><label>Installed</label><div id="have"></div></div></section>
+<section id="avatar"><h2>Avatar</h2><div id="lock" class="card lock" hidden><h3>Microsoft login required</h3><p>Your avatar stays on this device. Log in with Microsoft on the Play tab to unlock it.</p></div>
+ <div id="studio" class="stage" hidden><canvas id="cv" width="320" height="440"></canvas><div>
+  <label>Accessories</label><div class="chips" id="chips"></div>
+  <div class="row"><div><label>Glow</label><input id="col" type="color" value="#b6ff3c"></div><div><label>Animation</label><select id="anim"><option>Walking</option><option>Idle</option><option>Running</option><option>Flying</option></select></div>
+  <div><label>Model</label><select id="model"><option value="default">Classic</option><option value="slim">Slim</option></select></div></div>
+  <div style="margin-top:14px"><button class="b" data-act="skin">Load skin PNG</button></div>
+  <p style="color:var(--dim);max-width:340px;font-size:13px">Preview only, saved locally. To show these in-game, use a client-side mod like Figura.</p></div></div></section>
+</main>
+<script src="node_modules/three/build/three.min.js"></script>
+<script src="node_modules/skinview3d/bundles/skinview3d.bundle.js"></script>
+<script src="renderer.js"></script></body></html>
